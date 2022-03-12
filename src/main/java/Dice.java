@@ -21,4 +21,12 @@ public class Dice {
         }
         return sum;
     }
+
+    public int findMinimumTossSum() {
+        return numberOfDice; // assumes dice faces show 1 - numberOfSides (so lowest is 1)
+    }
+
+    public int findMaximumTossSum() {
+        return numberOfDice * numberOfSides; // assumes dice faces show 1 - numberOfSides (so highest is numberOfSides)
+    }
 }

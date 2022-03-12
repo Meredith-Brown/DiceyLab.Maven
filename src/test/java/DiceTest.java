@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DiceTest {
 
-    @org.junit.Test
+    @Test
     public void testTwoInputConstructor() {
         // Given
         int expectedDice = 3;
@@ -19,7 +19,7 @@ class DiceTest {
         Assert.assertEquals(expectedSides, actualSides);
     }
 
-    @org.junit.Test
+    @Test
     public void testOneInputConstructor() {
         // Given
         int expectedDice = 3;
@@ -48,5 +48,29 @@ class DiceTest {
         Assert.assertTrue(actual2 >= 3);
         Assert.assertTrue(actual3 <= 18);
         Assert.assertTrue(actual3 >= 3);
+    }
+
+    @Test
+    public void testFindMinimumTossSum() {
+        // Given
+        int expectedDice = 3;
+        int expectedSides = 4;
+        Dice dice = new Dice(expectedDice, expectedSides);
+        // When
+        int actual = dice.findMinimumTossSum();
+        // Then
+        Assert.assertEquals(3, actual);
+    }
+
+    @Test
+    public void testFindMaximumTossSum() {
+        // Given
+        int expectedDice = 3;
+        int expectedSides = 4;
+        Dice dice = new Dice(expectedDice, expectedSides);
+        // When
+        int actual = dice.findMaximumTossSum();
+        // Then
+        Assert.assertEquals(12, actual);
     }
 }
