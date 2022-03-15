@@ -12,7 +12,8 @@ public class Simulation {
     public static void main(String args[]) {
         Simulation simulation = new Simulation(2, 1000000);
         int[] results = simulation.simulateDiceToss();
-        System.out.println(Arrays.toString(results));
+        simulation.printSimulation(results);
+        // System.out.println(Arrays.toString(results));
     }
 
     public int[] simulateDiceToss() {
@@ -25,5 +26,16 @@ public class Simulation {
             bins.incrementBin(sum);
         }
         return bins.binsArray;
+    }
+
+    public void printSimulation(int[] simulationResults) {
+        System.out.println("***");
+        System.out.println("Simulation of " + numberOfDiesToThrow + " dice tossed for " + numberOfTossesToRun
+         + " times.");
+        System.out.println("***" + "\n");
+        for (int i = numberOfDiesToThrow; i <= numberOfDiesToThrow * 6; i++) {
+            System.out.println(String.format("%3d", i) + ": " + String.format("%8d", simulationResults[i - numberOfDiesToThrow]) + ":  ");
+        }
+        // System.out.println();
     }
 }
