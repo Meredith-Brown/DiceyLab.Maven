@@ -34,7 +34,9 @@ public class Simulation {
          + " times.");
         System.out.println("***" + "\n");
         for (int i = numberOfDiesToThrow; i <= numberOfDiesToThrow * 6; i++) {
-            System.out.println(String.format("%3d", i) + ": " + String.format("%8d", simulationResults[i - numberOfDiesToThrow]) + ":  ");
+            System.out.println(String.format("%3d", i) + ": " +
+                    String.format("%8d", simulationResults[i - numberOfDiesToThrow]) + ":  " +
+                    ((double) simulationResults[i - numberOfDiesToThrow] / (double) numberOfTossesToRun));
         }
         // System.out.println();
     }
