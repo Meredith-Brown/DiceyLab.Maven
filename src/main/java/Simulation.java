@@ -1,5 +1,7 @@
 import java.util.Arrays;
 
+import java.text.DecimalFormat;
+
 public class Simulation {
     public int numberOfDiesToThrow;
     public int numberOfTossesToRun;
@@ -33,11 +35,27 @@ public class Simulation {
         System.out.println("Simulation of " + numberOfDiesToThrow + " dice tossed for " + numberOfTossesToRun
          + " times.");
         System.out.println("***" + "\n");
+        StringBuilder sb = new StringBuilder();
         for (int i = numberOfDiesToThrow; i <= numberOfDiesToThrow * 6; i++) {
-            System.out.println(String.format("%3d", i) + ": " +
+            sb.append(String.format("%3d", i) + ": " +
                     String.format("%8d", simulationResults[i - numberOfDiesToThrow]) + ":  " +
-                    ((double) simulationResults[i - numberOfDiesToThrow] / (double) numberOfTossesToRun));
+                    (Math.round((((double) simulationResults[i - numberOfDiesToThrow] /
+                            (double) numberOfTossesToRun)) * 100)) / 100.00 + " ");
+            if (((Math.round((((double) simulationResults[i - numberOfDiesToThrow] /
+                    (double) numberOfTossesToRun)) * 100)) / 100.00) > 0.00) {
+                for (int j = 1; j <= (Math.round((((double) simulationResults[i - numberOfDiesToThrow] /
+                        (double) numberOfTossesToRun)) * 100)); j++) {
+                    sb.append("*");
+                }
+            }
+            sb.append("\n");
+            // System.out.println(String.format("%3d", i) + ": " +
+                    // String.format("%8d", simulationResults[i - numberOfDiesToThrow]) + ":  " +
+                    // (Math.round((((double) simulationResults[i - numberOfDiesToThrow] /
+                            // (double) numberOfTossesToRun)) * 100)) / 100.00);
         }
         // System.out.println();
+        String output = sb.toString();
+        System.out.println(output);
     }
 }
