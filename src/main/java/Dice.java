@@ -15,11 +15,12 @@ public class Dice {
     }
 
     public Integer tossAndSum() {
-        Integer sum = 0;
+        double sum = 0;
         for(int i = 1; i <= numberOfDice; i++) {
-            sum += ((int) ((Math.random() * (numberOfSides - 1)) + 1));
+            sum += (((Math.random() * ((double) numberOfSides - 1.0)) + 1.0));
         }
-        return sum;
+        int sumInt = (int) Math.round(sum);
+        return sumInt;
     }
 
     public int findMinimumTossSum() {
